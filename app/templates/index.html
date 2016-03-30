@@ -1,0 +1,38 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - microblog</title>
+    {% else %}
+    <title>Welcome to microblog</title>
+    {% endif %}
+  </head>
+  <body>
+    <!--script to load Facebokk embed post-->
+    <script>(
+      function(d, s, id) {  
+        var js, fjs = d.getElementsByTagName(s)[0];  
+        if (d.getElementById(id)) return;  
+        js = d.createElement(s); 
+        js.id = id;  
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";  
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+ 
+    <h1>Hi, {{ user.nickname }}!</h1>
+    <div align="center">
+    {% for post in posts %}
+    <div class="fb-post" data-href= {{ post.url }} data-width="500">
+      <div class="fb-xfbml-parse-ignore">
+        <!--<blockquote cite={{post.url}}>-->
+        <!--Below is for fallback, we dont support fallback-->
+        <!--<p>{{ post.text }}</p>-->
+        <!--Posted by <a href= {{ post.author_url }} >{{post.author}}</a> on;<a href= {{post.url}}>{{ post.time }}</a> -->
+        <!--</blockquote>-->
+      </div>
+    </div>
+    <br><br>
+    {% endfor %}
+    </div>
+  </body>
+</html>
