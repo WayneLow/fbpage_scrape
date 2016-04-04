@@ -28,6 +28,7 @@ comment1 = models.Comment(comment_id='number in string',
                           commenter_name='WayneJunYing',
                           commenter_id='number in string',
                           message='some message',
+                          liked=55,
                           post_id='306608096208936_497846080418469')
 
 ## Add the object to the database table

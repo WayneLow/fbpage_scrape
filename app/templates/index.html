@@ -18,21 +18,42 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
- 
+
+    <!-- Your like button code -->
+    <div class="fb-like" 
+      data-href="https://www.facebook.com/306608096208936/" 
+      data-layout="standard" 
+      data-action="like" 
+      data-show-faces="true">
+    </div>
+    <br>
+    <div class="fb-comments" data-href="https://www.facebook.com/306608096208936_496093210593756/comments" data-numposts="5"></div>
+
     <h1>Hi, {{ user.nickname }}!</h1>
-    <div align="center">
+    
     {% for post in posts %}
-    <div class="fb-post" data-href= {{ post.url }} data-width="500">
-      <div class="fb-xfbml-parse-ignore">
+    <div align="center">
+      <div class="fb-post" data-href= {{ post.url }} data-width="500">
+        <div class="fb-xfbml-parse-ignore">
         <!--<blockquote cite={{post.url}}>-->
         <!--Below is for fallback, we dont support fallback-->
         <!--<p>{{ post.text }}</p>-->
         <!--Posted by <a href= {{ post.author_url }} >{{post.author}}</a> on;<a href= {{post.url}}>{{ post.time }}</a> -->
         <!--</blockquote>-->
+        </div>
       </div>
     </div>
+    <br>
+    <table>
+      {% for comment in post.comments %}
+        <tr>
+          <td><b>{{ comment[0] }}</b> says: </td>
+          <td>{{ comment[2] }}   </td>
+          <td>{{ comment[1] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
     <br><br>
     {% endfor %}
-    </div>
   </body>
 </html>
