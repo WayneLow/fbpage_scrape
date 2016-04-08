@@ -1,4 +1,4 @@
-from app import db, models
+from apps import db, models
 
 posts = models.Post.query.all()
 print posts

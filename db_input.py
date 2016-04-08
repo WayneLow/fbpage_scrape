@@ -1,4 +1,4 @@
-from app import db, models
+from apps import db, models
 
 from datetime import datetime
 

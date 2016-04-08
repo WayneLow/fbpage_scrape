@@ -1,6 +1,6 @@
 import urllib2
 import json
-from app import db, models
+from apps import db, models
 
 from datetime import datetime
 
